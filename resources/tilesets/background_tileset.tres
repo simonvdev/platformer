@@ -1,0 +1,25 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bwi68g385857c"]
+
+[ext_resource type="Texture2D" uid="uid://cqsksi2fwewul" path="res://sprites/spritesheet-backgrounds-default.png" id="2_073ht"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glow5"]
+texture = ExtResource("2_073ht")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+
+[resource]
+tile_size = Vector2i(256, 256)
+sources/1 = SubResource("TileSetAtlasSource_glow5")
