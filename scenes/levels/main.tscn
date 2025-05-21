@@ -20,3 +20,4 @@ tile_set = ExtResource("1_72ix8")
 
 [node name="Player" parent="." instance=ExtResource("3_y0acb")]
 position = Vector2(-472, 279)
+platform_on_leave = 2

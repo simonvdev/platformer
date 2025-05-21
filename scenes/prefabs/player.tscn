@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dktex0f627h3w" path="res://resources/sprites_frames/player.tres" id="2_n0leu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0acb"]
-radius = 41.2
+radius = 35.63
 height = 94.53
 
 [node name="Player" type="CharacterBody2D"]
@@ -13,10 +13,10 @@ platform_wall_layers = 1
 script = ExtResource("1_tou0u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 17)
 shape = SubResource("CapsuleShape2D_y0acb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
 sprite_frames = ExtResource("2_n0leu")
 animation = &"idle"
 
