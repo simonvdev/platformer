@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cy7m02sotjbsw"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://cy7m02sotjbsw"]
 
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="1_d1qbg"]
+[ext_resource type="PackedScene" uid="uid://ckdwxb4j2jfrx" path="res://scenes/prefabs/flag.tscn" id="2_bqwvs"]
+[ext_resource type="PackedScene" uid="uid://bviejdn40bvn5" path="res://scenes/prefabs/coin.tscn" id="3_ykdsg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqwvs"]
 texture = ExtResource("1_d1qbg")
@@ -16479,6 +16481,10 @@ texture_region_size = Vector2i(64, 64)
 7:16/0/terrains_peering_bit/top_left_corner = 0
 7:16/0/terrains_peering_bit/top_side = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ykdsg"]
+scenes/1/scene = ExtResource("2_bqwvs")
+scenes/2/scene = ExtResource("3_ykdsg")
+
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
@@ -16486,3 +16492,4 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_bqwvs")
+sources/2 = SubResource("TileSetScenesCollectionSource_ykdsg")
