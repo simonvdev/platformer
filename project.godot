@@ -15,6 +15,10 @@ run/main_scene="uid://dfxdngdmafu6y"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
 [autoload]
 
 Director="*res://scripts/game_director.gd"

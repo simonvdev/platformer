@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bviejdn40bvn5"]
+[gd_scene load_steps=8 format=3 uid="uid://bviejdn40bvn5"]
 
 [ext_resource type="Script" uid="uid://clp1a384d4axs" path="res://scripts/coin.gd" id="1_npwt8"]
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="1_v4bfp"]
+[ext_resource type="AudioStream" uid="uid://drr1ph78n5g5v" path="res://audio/sfx_coin.ogg" id="3_p8e1u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npwt8"]
 
@@ -34,6 +35,10 @@ script = ExtResource("1_npwt8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_npwt8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p8e1u")
+bus = &"Sound Effects"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c0xcx")

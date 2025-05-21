@@ -24,3 +24,5 @@ animation = &"falling"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(21, -14)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
