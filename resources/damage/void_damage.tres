@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DamageSource" load_steps=2 format=3 uid="uid://dkxusq5fabixg"]
+
+[ext_resource type="Script" uid="uid://djlvf4lnxgr3a" path="res://scripts/damage_source.gd" id="1_j4los"]
+
+[resource]
+script = ExtResource("1_j4los")
+damage = -100
+damage_type = 0
+metadata/_custom_type_script = "uid://djlvf4lnxgr3a"

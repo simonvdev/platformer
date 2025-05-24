@@ -4,7 +4,15 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -600.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var health_component = $HealthComponent
 
+func _ready():
+	health_component.died.connect(on_death)
+	
+func on_death():
+	Director.PlayerDied.emit()
+	queue_free()
+	
 # Handle animations and direction changes based on player velocity
 func _process(delta):
 	if not is_on_floor():

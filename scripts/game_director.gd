@@ -5,6 +5,9 @@ class_name GameDirector
 signal LevelFinished
 signal CoinCollected
 signal CoinsChanged(old : int,new : int,delta : int)
+signal RespawnPlayer(position)
+signal PlayerHealthChanged(old : int ,new : int, delta: int)
+signal PlayerDied
 
 var AmountOfCoinsCollected : int = 0
 
