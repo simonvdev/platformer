@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmxvfehetmmap"]
+
+[ext_resource type="Script" uid="uid://b8f4r1qhrakgx" path="res://scenes/levels/BasicEnemy.gd" id="1_oiceh"]
+[ext_resource type="Texture2D" uid="uid://c3tym51mv3key" path="res://sprites/spritesheet-enemies-default.png" id="2_0netx"]
+[ext_resource type="Script" uid="uid://xn51fsbemgur" path="res://scripts/damage_volume.gd" id="3_hw223"]
+[ext_resource type="Script" uid="uid://djlvf4lnxgr3a" path="res://scripts/damage_source.gd" id="4_bqt74"]
+[ext_resource type="Script" uid="uid://bx0sxppw68hvi" path="res://scripts/hitbox.gd" id="5_44pch"]
+[ext_resource type="Script" uid="uid://cifw7k4phrtg8" path="res://scripts/health_component.gd" id="6_rdxhq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lrji"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rssyh"]
+atlas = ExtResource("2_0netx")
+region = Rect2(128, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwp66"]
+atlas = ExtResource("2_0netx")
+region = Rect2(128, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkjh"]
+atlas = ExtResource("2_0netx")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj21o"]
+atlas = ExtResource("2_0netx")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ui35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rssyh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwp66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rssyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkjh")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj21o")
+}],
+"loop": true,
+"name": &"squished",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_dj21o"]
+script = ExtResource("4_bqt74")
+damage = -2
+damage_type = 0
+metadata/_custom_type_script = "uid://djlvf4lnxgr3a"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rssyh"]
+size = Vector2(64, 51)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_oiceh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7lrji")
+debug_color = Color(0.649841, 0.51994, 1.92523e-07, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ui35")
+animation = &"moving"
+frame_progress = 0.256596
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+
+[node name="DamageVolume" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_hw223")
+volumeDamage = SubResource("Resource_dj21o")
+metadata/_custom_type_script = "uid://xn51fsbemgur"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageVolume"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_rssyh")
+debug_color = Color(0, 0.650273, 0.102666, 0.42)
+
+[node name="HitBox2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("5_44pch")
+metadata/_custom_type_script = "uid://bx0sxppw68hvi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_rssyh")
+debug_color = Color(0.966197, 8.66354e-07, 0.482028, 0.42)
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hitBoxes")]
+script = ExtResource("6_rdxhq")
+maxhearts = 1
+hitBoxes = [NodePath("../HitBox2D")]
+metadata/_custom_type_script = "uid://cifw7k4phrtg8"
