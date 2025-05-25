@@ -11,7 +11,7 @@ func _ready():
 	audio_stream_player_2d.finished.connect(_on_audio_finished)
 	
 	
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	Director.CoinCollected.emit()
 	audio_stream_player_2d.play()
 	collision_shape_2d.set_deferred("disabled",false)

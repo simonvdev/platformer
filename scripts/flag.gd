@@ -7,5 +7,5 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	Director.LevelFinished.emit()# Replace with function body.
