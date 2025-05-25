@@ -26,4 +26,4 @@ func _on_coins_changed(old : int,new : int, delta:int ):
 func _on_level_finished():
 	print("Level Done")
 	AmountOfCoinsCollected = 0
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")

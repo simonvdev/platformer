@@ -14,7 +14,7 @@ func _ready():
 func _on_body_entered(body):
 	Director.CoinCollected.emit()
 	audio_stream_player_2d.play()
-	collision_shape_2d.disabled = true
+	collision_shape_2d.set_deferred("disabled",false)
 	animated_sprite_2d.visible = false
 
 func _on_audio_finished():
