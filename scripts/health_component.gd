@@ -1,6 +1,6 @@
 class_name HealthComponent extends Node
 
-@export var maxhearts = 3
+@export var maxhearts = 6
 var currenthearts = 0
 var state : HealthState = HealthState.Alive
 
@@ -17,15 +17,27 @@ enum HealthState {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	currenthearts = maxhearts
 	link_to_hitboxes()
+	set_health(maxhearts)
 	
 func link_to_hitboxes():
 	for box in hitBoxes:
 		box.handle_hit.connect(_on_hit)
-	
+		
 func _on_hit(damage : DamageSource):
 	change_health(damage)
+	
+func set_health(value : int):
+	var oldHealth = currenthearts
+	currenthearts = value
+	
+	currenthearts = clampi(currenthearts,0,maxhearts)
+	
+	health_changed.emit.call_deferred(oldHealth,currenthearts,currenthearts - oldHealth)
+	
+	if ( currenthearts <= 0 ):
+		state = HealthState.Dead
+		died.emit.call_deferred()
 
 func change_health(source : DamageSource):
 	if state == HealthState.Dead:

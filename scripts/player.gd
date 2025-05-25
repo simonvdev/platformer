@@ -4,14 +4,21 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -600.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var health_component = $HealthComponent
+@onready var health_component : HealthComponent = $HealthComponent
+
+
+@export var jump_sound : AudioStream
 
 func _ready():
-	health_component.died.connect(on_death)
+	health_component.died.connect(_on_death)
+	health_component.health_changed.connect(_health_changed)
 	
-func on_death():
+func _on_death():
 	Director.PlayerDied.emit()
 	queue_free()
+	
+func _health_changed(old :int,new:int, delta:int):
+	Director.PlayerHealthChanged.emit(old,new, delta)
 	
 # Handle animations and direction changes based on player velocity
 func _process(delta):
@@ -41,6 +48,8 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		var test : AudioStreamPlayer = SoundManager.play_sound(jump_sound, "SFX")
+		test.volume_linear = 0.5
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

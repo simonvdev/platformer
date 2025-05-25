@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var coin_label = $Control/HBoxContainer/Label
+@onready var coin_label: Label = $Control/CoinDisplay/Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

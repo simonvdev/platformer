@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjnmknsb48nai"]
+[gd_scene load_steps=8 format=3 uid="uid://bjnmknsb48nai"]
 
 [ext_resource type="Script" uid="uid://ccr3wplpp30g3" path="res://scripts/checkpoint.gd" id="1_u1pnt"]
+[ext_resource type="AudioStream" uid="uid://ct2rcnlcc8bbx" path="res://audio/sfx_select.ogg" id="2_87kgb"]
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="2_uryah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87kgb"]
@@ -33,6 +34,7 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_u1pnt")
+checkpoint_audio = ExtResource("2_87kgb")
 metadata/_custom_type_script = "uid://ccr3wplpp30g3"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

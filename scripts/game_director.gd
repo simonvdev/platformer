@@ -17,7 +17,7 @@ var last_checkpoint : Vector2
 
 var AmountOfCoinsCollected : int = 0
 
-func _ready():
+func _init():
 	LevelFinished.connect(_on_level_finished)
 	CoinCollected.connect(_on_coin_collected)
 	CoinsChanged.connect(_on_coins_changed)

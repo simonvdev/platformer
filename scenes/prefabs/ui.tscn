@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://by8jheac80cbi"]
+[gd_scene load_steps=8 format=3 uid="uid://by8jheac80cbi"]
 
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="1_8b8en"]
 [ext_resource type="Script" uid="uid://bkphncko463vj" path="res://scenes/prefabs/ui.gd" id="1_mwfwn"]
+[ext_resource type="Script" uid="uid://b4bpsc6woh6lq" path="res://scenes/prefabs/heart_container.gd" id="3_wejn0"]
+[ext_resource type="PackedScene" uid="uid://wyrev57ugi3e" path="res://scenes/prefabs/heart_display.tscn" id="4_wejn0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u81e1"]
 atlas = ExtResource("1_8b8en")
@@ -12,26 +14,49 @@ font_size = 46
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwfwn"]
+atlas = ExtResource("1_8b8en")
+region = Rect2(768, 512, 64, 64)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_mwfwn")
 
 [node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CoinDisplay" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_bottom = 64.0
+grow_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+[node name="CoinIcon" type="TextureRect" parent="Control/CoinDisplay"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_u81e1")
 
-[node name="Label" type="Label" parent="Control/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/CoinDisplay"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_b6bv0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerDisplay" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+offset_right = 132.0
+offset_bottom = 64.0
+
+[node name="PlayerIcon" type="TextureRect" parent="Control/PlayerDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mwfwn")
+
+[node name="HeartContainer" type="HBoxContainer" parent="Control/PlayerDisplay"]
+layout_mode = 2
+script = ExtResource("3_wejn0")
+heart_display_scene = ExtResource("4_wejn0")

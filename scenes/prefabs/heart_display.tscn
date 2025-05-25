@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://wyrev57ugi3e"]
+
+[ext_resource type="Script" uid="uid://k7gmn05lx724" path="res://scenes/prefabs/heart_display.gd" id="1_modri"]
+[ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="2_m1gvd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl8ej"]
+atlas = ExtResource("2_m1gvd")
+region = Rect2(768, 1088, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wejn0"]
+atlas = ExtResource("2_m1gvd")
+region = Rect2(768, 1024, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpphg"]
+atlas = ExtResource("2_m1gvd")
+region = Rect2(832, 0, 64, 64)
+
+[node name="HeartDisplay" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_modri")
+metadata/_custom_type_script = "uid://k7gmn05lx724"
+
+[node name="EmptyHeart" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("AtlasTexture_fl8ej")
+
+[node name="HalfHeart" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("AtlasTexture_wejn0")
+
+[node name="FullHeart" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("AtlasTexture_rpphg")
