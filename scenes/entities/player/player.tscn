@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bucqlnk48mlh2"]
+[gd_scene load_steps=13 format=3 uid="uid://bucqlnk48mlh2"]
 
 [ext_resource type="Script" uid="uid://7rw6d1ujglih" path="res://scenes/entities/player/player.gd" id="1_8akj5"]
 [ext_resource type="AudioStream" uid="uid://mitm4ktxdrki" path="res://audio/sfx_jump.ogg" id="2_bj7e2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://cifw7k4phrtg8" path="res://logic/components/health_component.gd" id="4_5sj0x"]
 [ext_resource type="Script" uid="uid://bx0sxppw68hvi" path="res://logic/components/hitbox.gd" id="5_ovg4i"]
 [ext_resource type="Script" uid="uid://bxabmeems20se" path="res://logic/components/knockback_component.gd" id="6_7wli1"]
+[ext_resource type="Script" uid="uid://xn51fsbemgur" path="res://scenes/entities/damage_volume/damage_volume.gd" id="7_bj7e2"]
+[ext_resource type="Script" uid="uid://djlvf4lnxgr3a" path="res://logic/resources/damage_source.gd" id="8_1murt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0acb"]
 radius = 35.63
@@ -14,6 +16,16 @@ height = 94.53
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56dyf"]
 radius = 35.0
 height = 94.0
+
+[sub_resource type="Resource" id="Resource_5sj0x"]
+script = ExtResource("8_1murt")
+damage = -10
+damage_type = 0
+knockback_distance = 0
+metadata/_custom_type_script = "uid://djlvf4lnxgr3a"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1murt"]
+size = Vector2(37, 27)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -36,7 +48,7 @@ script = ExtResource("4_5sj0x")
 hitBoxes = [NodePath("../HitBox2D")]
 
 [node name="HitBox2D" type="Area2D" parent="."]
-collision_layer = 18
+collision_layer = 2
 collision_mask = 50
 script = ExtResource("5_ovg4i")
 metadata/_custom_type_script = "uid://bx0sxppw68hvi"
@@ -50,3 +62,15 @@ script = ExtResource("6_7wli1")
 health_component = NodePath("../HealthComponent")
 physics_body_2d = NodePath("..")
 metadata/_custom_type_script = "uid://bxabmeems20se"
+
+[node name="DamageVolume" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("7_bj7e2")
+volumeDamage = SubResource("Resource_5sj0x")
+metadata/_custom_type_script = "uid://xn51fsbemgur"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageVolume"]
+position = Vector2(0, 60.5)
+shape = SubResource("RectangleShape2D_1murt")

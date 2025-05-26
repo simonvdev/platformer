@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
 
-const SPEED = 175.0
+var SPEED = 175.0
 var direction = -1
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var damage_volume: DamageVolume = $DamageVolume
 
 func _ready() -> void:
 	health_component.died.connect(_on_death)
 
 func _on_death():
+	animated_sprite_2d.play("squished")
+	SPEED = 0
+	damage_volume.monitoring = false
+	await get_tree().create_timer(0.25).timeout
 	queue_free()
 
 func _process(delta: float) -> void:

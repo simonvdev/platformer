@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 
 @export var jump_sound : AudioStream
+@onready var damage_volume: DamageVolume = $DamageVolume
 
 func _ready():
 	health_component.died.connect(_on_death)
@@ -51,6 +52,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		damage_volume.monitoring = true
+	else:
+		damage_volume.monitoring = false
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
