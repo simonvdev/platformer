@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://wyrev57ugi3e"]
 
-[ext_resource type="Script" uid="uid://k7gmn05lx724" path="res://scenes/prefabs/heart_display.gd" id="1_modri"]
+[ext_resource type="Script" uid="uid://k7gmn05lx724" path="res://scenes/ui/hud/heart_display.gd" id="1_modri"]
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="2_m1gvd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fl8ej"]

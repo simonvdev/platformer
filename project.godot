@@ -21,7 +21,7 @@ buses/default_bus_layout="res://resources/default_bus_layout.tres"
 
 [autoload]
 
-Director="*res://scenes/prefabs/director.tscn"
+Director="*res://scenes/entities/director/director.tscn"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [display]
@@ -36,6 +36,15 @@ project/assembly_name="platformer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://logic/": "red",
+"res://scenes/entities/": "pink",
+"res://scenes/levels/": "blue",
+"res://scenes/ui/": "green"
+}
 
 [global_group]
 

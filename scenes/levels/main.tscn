@@ -2,12 +2,12 @@
 
 [ext_resource type="TileSet" uid="uid://bwi68g385857c" path="res://resources/tilesets/background_tileset.tres" id="1_2vj2h"]
 [ext_resource type="TileSet" uid="uid://cy7m02sotjbsw" path="res://resources/tilesets/default_tileset.tres" id="1_72ix8"]
-[ext_resource type="PackedScene" uid="uid://66sv3pikkqeu" path="res://scenes/prefabs/camera_2d.tscn" id="1_ubwgw"]
-[ext_resource type="PackedScene" uid="uid://bucqlnk48mlh2" path="res://scenes/prefabs/player.tscn" id="3_y0acb"]
-[ext_resource type="PackedScene" uid="uid://by8jheac80cbi" path="res://scenes/prefabs/ui.tscn" id="4_j4d2a"]
-[ext_resource type="Script" uid="uid://xn51fsbemgur" path="res://scripts/damage_volume.gd" id="5_u81e1"]
+[ext_resource type="PackedScene" uid="uid://66sv3pikkqeu" path="res://scenes/entities/camera/camera_2d.tscn" id="1_ubwgw"]
+[ext_resource type="PackedScene" uid="uid://bucqlnk48mlh2" path="res://scenes/entities/player/player.tscn" id="3_y0acb"]
+[ext_resource type="PackedScene" uid="uid://by8jheac80cbi" path="res://scenes/ui/hud/ui.tscn" id="4_j4d2a"]
+[ext_resource type="Script" uid="uid://xn51fsbemgur" path="res://scenes/entities/damage_volume/damage_volume.gd" id="5_u81e1"]
 [ext_resource type="Resource" uid="uid://dkxusq5fabixg" path="res://resources/damage/void_damage.tres" id="6_b6bv0"]
-[ext_resource type="PackedScene" uid="uid://dmxvfehetmmap" path="res://scenes/prefabs/enemy.tscn" id="8_vkq25"]
+[ext_resource type="PackedScene" uid="uid://dmxvfehetmmap" path="res://scenes/entities/basic_enemy/enemy.tscn" id="8_vkq25"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b6bv0"]
 

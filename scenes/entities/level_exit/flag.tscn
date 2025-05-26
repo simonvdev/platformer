@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckdwxb4j2jfrx"]
 
-[ext_resource type="Script" uid="uid://buuyyk8idfq7x" path="res://scripts/flag.gd" id="1_xsn60"]
+[ext_resource type="Script" uid="uid://buuyyk8idfq7x" path="res://scenes/entities/level_exit/flag.gd" id="1_xsn60"]
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="2_xvefb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3qto"]

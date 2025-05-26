@@ -18,10 +18,4 @@ func _on_hit(damage : DamageSource):
 
 	knock_direction = (global_position - damage.insitigator.global_position) 
 	
-	
 	physics_body_2d.apply_knockback(knock_direction, damage.knockback_distance)
-	queue_redraw()
-	
-	
-func _draw() -> void:
-	draw_line(position,position + (knock_direction.normalized() * 64),Color.RED,8)

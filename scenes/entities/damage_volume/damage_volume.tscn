@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5b0wxtbt0jdn"]
 
-[ext_resource type="Script" uid="uid://bx0sxppw68hvi" path="res://scripts/hitbox.gd" id="1_1tohx"]
+[ext_resource type="Script" uid="uid://bx0sxppw68hvi" path="res://logic/components/hitbox.gd" id="1_1tohx"]
 
 [node name="DamageVolume" type="Area2D"]
 script = ExtResource("1_1tohx")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://by8jheac80cbi"]
 
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="1_8b8en"]
-[ext_resource type="Script" uid="uid://bkphncko463vj" path="res://scenes/prefabs/ui.gd" id="1_mwfwn"]
-[ext_resource type="Script" uid="uid://b4bpsc6woh6lq" path="res://scenes/prefabs/heart_container.gd" id="3_wejn0"]
-[ext_resource type="PackedScene" uid="uid://wyrev57ugi3e" path="res://scenes/prefabs/heart_display.tscn" id="4_wejn0"]
+[ext_resource type="Script" uid="uid://bkphncko463vj" path="res://scenes/ui/hud/ui.gd" id="1_mwfwn"]
+[ext_resource type="Script" uid="uid://b4bpsc6woh6lq" path="res://scenes/ui/hud/heart_container.gd" id="3_wejn0"]
+[ext_resource type="PackedScene" uid="uid://wyrev57ugi3e" path="res://scenes/ui/hud/heart_display.tscn" id="4_wejn0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u81e1"]
 atlas = ExtResource("1_8b8en")

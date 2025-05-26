@@ -41,7 +41,7 @@ func _on_player_died():
 	
 	# Instantiate new player
 	var player : Node2D = PlayerPrefab.instantiate()
-	get_tree().root.add_child(player)
+	get_tree().root.call_deferred("add_child",player)
 	player.position = last_checkpoint
 	
 	# Camera

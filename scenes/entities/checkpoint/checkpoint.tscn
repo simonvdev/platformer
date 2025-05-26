@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bjnmknsb48nai"]
 
-[ext_resource type="Script" uid="uid://ccr3wplpp30g3" path="res://scripts/checkpoint.gd" id="1_u1pnt"]
+[ext_resource type="Script" uid="uid://ccr3wplpp30g3" path="res://scenes/entities/checkpoint/checkpoint.gd" id="1_u1pnt"]
 [ext_resource type="AudioStream" uid="uid://ct2rcnlcc8bbx" path="res://audio/sfx_select.ogg" id="2_87kgb"]
 [ext_resource type="Texture2D" uid="uid://c63y3gy43txgc" path="res://sprites/spritesheet-tiles-default.png" id="2_uryah"]
 

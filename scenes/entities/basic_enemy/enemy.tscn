@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b8f4r1qhrakgx" path="res://scenes/levels/BasicEnemy.gd" id="1_oiceh"]
 [ext_resource type="Texture2D" uid="uid://c3tym51mv3key" path="res://sprites/spritesheet-enemies-default.png" id="2_0netx"]
-[ext_resource type="Script" uid="uid://xn51fsbemgur" path="res://scripts/damage_volume.gd" id="3_hw223"]
-[ext_resource type="Script" uid="uid://djlvf4lnxgr3a" path="res://scripts/damage_source.gd" id="4_bqt74"]
-[ext_resource type="Script" uid="uid://bx0sxppw68hvi" path="res://scripts/hitbox.gd" id="5_44pch"]
-[ext_resource type="Script" uid="uid://cifw7k4phrtg8" path="res://scripts/health_component.gd" id="6_rdxhq"]
+[ext_resource type="Script" uid="uid://xn51fsbemgur" path="res://scenes/entities/damage_volume/damage_volume.gd" id="3_hw223"]
+[ext_resource type="Script" uid="uid://djlvf4lnxgr3a" path="res://logic/resources/damage_source.gd" id="4_bqt74"]
+[ext_resource type="Script" uid="uid://bx0sxppw68hvi" path="res://logic/components/hitbox.gd" id="5_44pch"]
+[ext_resource type="Script" uid="uid://cifw7k4phrtg8" path="res://logic/components/health_component.gd" id="6_rdxhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lrji"]
 size = Vector2(64, 64)
