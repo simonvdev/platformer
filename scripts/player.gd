@@ -39,6 +39,13 @@ func _process(delta):
 		animated_sprite_2d.flip_h = true
 	else:
 		animated_sprite_2d.flip_h = false
+		
+func apply_knockback(direction : Vector2, distance : float):
+	var gravity := get_gravity()  # This is a Vector2, usually (0, 980)
+	var displacement := direction.normalized() * distance
+	var duration := 0.2
+	var initial_velocity := (displacement - 0.5 * gravity * duration * duration) / duration
+	velocity+= initial_velocity
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -47,7 +54,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y += JUMP_VELOCITY
 		var test : AudioStreamPlayer = SoundManager.play_sound(jump_sound, "SFX")
 		test.volume_linear = 0.5
 
@@ -59,5 +66,7 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	print(velocity)
 		
 	move_and_slide()

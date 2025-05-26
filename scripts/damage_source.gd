@@ -7,11 +7,12 @@ enum DamageType {
 
 @export var damage : int
 @export var damage_type : DamageType
-var knockback : Vector2
+@export var knockback_distance : int
+var insitigator : Node2D
 
-func _init(_damage = 1, _damageType : DamageType = DamageType.Physical , _knockback = Vector2.ZERO) -> void:
+func _init(_damage = 1, _damageType : DamageType = DamageType.Physical , _knockback_distance : int = 0) -> void:
 	damage = _damage
-	knockback = _knockback
+	knockback_distance = _knockback_distance
 	damage_type = _damageType
 
 static func fromStomp() -> DamageSource:

@@ -4,4 +4,5 @@ class_name DamageVolume extends HitBox2D
 
 func on_hit_box_entered(hitBox : HitBox2D) -> void:
 	if volumeDamage != null:
+		volumeDamage.insitigator = self
 		hitBox.hit(volumeDamage)

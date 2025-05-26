@@ -8,6 +8,7 @@ var state : HealthState = HealthState.Alive
 var hitBoxes : Array[HitBox2D]
 
 signal health_changed(old : int,new : int, delta : int)
+signal hit(damage : DamageSource)
 signal died()
 
 enum HealthState {
@@ -26,6 +27,7 @@ func link_to_hitboxes():
 		
 func _on_hit(damage : DamageSource):
 	change_health(damage)
+	hit.emit(damage)
 	
 func set_health(value : int):
 	var oldHealth = currenthearts
